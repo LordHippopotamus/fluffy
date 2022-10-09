@@ -41,6 +41,8 @@ collections:
     folder: content/meta/animals
     extension: json
     format: json
+    editor:
+      preview: false
     create: true
     slug: '{{slug}}'
     identifier_field: slug
@@ -61,6 +63,8 @@ collections:
     folder: content/meta/categories
     extension: json
     format: json
+    editor:
+      preview: false
     create: true
     slug: '{{slug}}'
     identifier_field: slug
@@ -144,7 +148,7 @@ collections:
       - name: category
         label: Category
         widget: relation
-        collection: category
+        collection: categories
         value_field: slug
         search_fields: [name]
         display_fields: [name]
