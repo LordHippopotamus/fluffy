@@ -53,32 +53,27 @@ collections:
       - name: name
         label: Title
         widget: string
-        hint: The name of animal
+        hint: Animal name for displaying on the site
 
-  - name: meta
-    label: Meta
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: categories
-        label: Categories
-        file: content/meta/categories.json
-        description: List of categories
-        fields:
-          - name: categories
-            label: Categories
-            label_singular: Category
-            widget: list
-            fields:
-              - name: slug
-                label: Slug
-                widget: string
-                hint: The part of a URL identifies the category
-              - name: name
-                label: Display Name
-                widget: string
-                hint: Category name for displaying on the site
+  - name: categories
+    label: Categories
+    label_singular: Category
+    folder: content/meta/categories
+    extension: json
+    format: json
+    create: true
+    slug: '{{slug}}'
+    identifier_field: slug
+    summary: '{{name}}'
+    fields:
+      - name: slug
+        label: Slug
+        widget: string
+        hint: The part of a URL identifies the category
+      - name: name
+        label: Title
+        widget: string
+        hint: Category name for displaying on the site
 
   - name: pages
     label: Pages
@@ -103,6 +98,7 @@ collections:
         label: Content
         widget: markdown
         hint: Page content
+
   - name: posts
     label: Posts
     label_singular: Post
@@ -141,19 +137,15 @@ collections:
         label: Animal
         widget: relation
         collection: animals
-        value_field: 'slug'
-        search_fields: ['name']
-        display_fields: ['name']
+        value_field: slug
+        search_fields: [name]
+        display_fields: [name]
         hint: Add an animal to the Animals file of the Meta colection if list is empty
       - name: category
         label: Category
         widget: relation
-        collection: meta
-        file: category
-        value_field: categories.*.slug
-        search_fields:
-          - categories.*.name
-        display_fields:
-          - categories.*.name
+        collection: category
+        value_field: slug
+        search_fields: [name]
+        display_fields: [name]
         hint: Add an category to the Categories file of the Meta colection if list is empty
-
