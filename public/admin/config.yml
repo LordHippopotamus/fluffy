@@ -34,30 +34,33 @@ collections:
               label: Keyword
               name: keyword
               widget: string
+
+  - name: animals
+    label: Animals
+    label_singular: Animal
+    folder: content/meta/animals
+    extension: json
+    format: json
+    create: true
+    slug: '{{slug}}'
+    identifier_field: slug
+    summary: '{{name}}'
+    fields:
+      - name: slug
+        label: Slug
+        widget: string
+        hint: The part of a URL identifies the animal
+      - name: name
+        label: Title
+        widget: string
+        hint: The name of animal
+
   - name: meta
     label: Meta
     delete: false
     editor:
       preview: false
     files:
-      - name: animals
-        label: Animals
-        file: content/meta/animals.json
-        description: List of animals
-        fields:
-          - name: amimals
-            label: Amimals
-            label_singular: Animal
-            widget: list
-            fields:
-              - name: slug
-                label: Slug
-                widget: string
-                hint: The part of a URL identifies the animal
-              - name: name
-                label: Display Name
-                widget: string
-                hint: Animal name for displaying on the site
       - name: categories
         label: Categories
         file: content/meta/categories.json
@@ -76,6 +79,7 @@ collections:
                 label: Display Name
                 widget: string
                 hint: Category name for displaying on the site
+
   - name: pages
     label: Pages
     label_singular: Page
@@ -136,13 +140,10 @@ collections:
       - name: animal
         label: Animal
         widget: relation
-        collection: meta
-        file: animals
-        value_field: animals.*.slug
-        search_fields:
-          - animals.*.name
-        display_fields:
-          - animals.*.name
+        collection: animals
+        value_field: 'slug'
+        search_fields: ['name']
+        display_fields: ['name']
         hint: Add an animal to the Animals file of the Meta colection if list is empty
       - name: category
         label: Category
@@ -155,3 +156,4 @@ collections:
         display_fields:
           - categories.*.name
         hint: Add an category to the Categories file of the Meta colection if list is empty
+
