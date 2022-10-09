@@ -1,0 +1,157 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: public/img
+public_folder: img
+
+collections:
+  - name: config
+    label: Config
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: general
+        label: Site Config
+        file: content/config.json
+        description: General site settings
+        fields:
+          - name: url
+            label: URL
+            widget: string
+            hint: Do not enter the trailing slash of the URL
+          - name: title
+            label: Site title
+            widget: string
+          - name: description
+            label: Site description
+            widget: string
+          - name: keywords
+            label: Site keywords
+            widget: list
+            summary: '{{fields.keyword}}'
+            field:
+              label: Keyword
+              name: keyword
+              widget: string
+  - name: meta
+    label: Meta
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: animals
+        label: Animals
+        file: content/meta/animals.json
+        description: List of animals
+        fields:
+          - name: amimals
+            label: Amimals
+            label_singular: Animal
+            widget: list
+            fields:
+              - name: slug
+                label: Slug
+                widget: string
+                hint: The part of a URL identifies the animal
+              - name: name
+                label: Display Name
+                widget: string
+                hint: Animal name for displaying on the site
+      - name: categories
+        label: Categories
+        file: content/meta/categories.json
+        description: List of categories
+        fields:
+          - name: categories
+            label: Categories
+            label_singular: Category
+            widget: list
+            fields:
+              - name: slug
+                label: Slug
+                widget: string
+                hint: The part of a URL identifies the category
+              - name: name
+                label: Display Name
+                widget: string
+                hint: Category name for displaying on the site
+  - name: pages
+    label: Pages
+    label_singular: Page
+    folder: content/pages
+    extension: json
+    format: json
+    create: true
+    slug: '{{slug}}'
+    identifier_field: slug
+    summary: '{{title}}'
+    fields:
+      - name: slug
+        label: Slug
+        widget: string
+        hint: The part of a URL identifies the page
+      - name: title
+        label: Title
+        widget: string
+        hint: Page title
+      - name: content
+        label: Content
+        widget: markdown
+        hint: Page content
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: content/posts
+    extension: json
+    format: json
+    create: true
+    slug: '{{slug}}'
+    identifier_field: slug
+    summary: '{{title}}'
+    fields:
+      - name: slug
+        label: Slug
+        widget: string
+        hint: The part of a URL identifies the post
+      - name: title
+        label: Title
+        widget: string
+        hint: Post title
+      - name: date
+        label: Publish Date
+        widget: datetime
+        format: YYYY-MM-DD
+        dateFormat: YYYY-MM-DD
+        timeFormat: false
+        hint: Date of the post publication
+      - name: thumbnail
+        label: Thumbnail
+        widget: image
+        hint: Featured image of the post
+      - name: content
+        label: Content
+        widget: markdown
+        hint: Post content
+      - name: animal
+        label: Animal
+        widget: relation
+        collection: meta
+        file: animals
+        value_field: animals.*.slug
+        search_fields:
+          - animals.*.name
+        display_fields:
+          - animals.*.name
+        hint: Add an animal to the Animals file of the Meta colection if list is empty
+      - name: category
+        label: Category
+        widget: relation
+        collection: meta
+        file: category
+        value_field: categories.*.slug
+        search_fields:
+          - categories.*.name
+        display_fields:
+          - categories.*.name
+        hint: Add an category to the Categories file of the Meta colection if list is empty
