@@ -1,0 +1,24 @@
+{
+  "amimals": [
+    {
+      "slug": "dog",
+      "name": "Dog"
+    },
+    {
+      "slug": "cat",
+      "name": "Cat"
+    },
+    {
+      "slug": "carrot",
+      "name": "Carrot"
+    },
+    {
+      "slug": "turtle",
+      "name": "Turtle"
+    },
+    {
+      "slug": "hamster",
+      "name": "Hamster"
+    }
+  ]
+}
