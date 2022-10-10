@@ -16,10 +16,6 @@ collections:
         file: content/config.json
         description: General site settings
         fields:
-          - name: url
-            label: URL
-            widget: string
-            hint: Do not enter the trailing slash of the URL
           - name: title
             label: Site title
             widget: string
