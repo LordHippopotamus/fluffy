@@ -1,7 +1,7 @@
 import { Navigation } from 'components';
 import { getObjects } from 'lib/data';
 
-export const getServerSideProps = () => {
+export const getStaticProps = () => {
   const pages = getObjects('pages', ['slug', 'title']);
   return { props: { pages } };
 };
