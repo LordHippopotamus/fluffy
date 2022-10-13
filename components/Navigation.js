@@ -22,11 +22,13 @@ const Navigation = ({ pages = [] }) => {
   return (
     <AppBar position="sticky">
       <Toolbar>
-        <Link href="/">
-          <Typography variant="h6" sx={{ flexGrow: 1, cursor: 'pointer' }}>
-            Fluffy
-          </Typography>
-        </Link>
+        <Box flexGrow={1}>
+          <Link href="/">
+            <Typography variant="h6" sx={{ display: 'inline-block', cursor: 'pointer' }}>
+              Fluffy
+            </Typography>
+          </Link>
+        </Box>
 
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           {pages.map(el => (
