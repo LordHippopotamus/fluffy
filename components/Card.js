@@ -6,27 +6,19 @@ import {
   CardMedia,
   Typography,
 } from '@mui/material';
-import Image from 'next/image';
+import Link from 'next/link';
 
-const Card = ({ title, thumbnail }) => (
-  <img src={'/' + thumbnail + '?nf_resize=fit&w=300&h=400'} alt="post thumbnail" />
-);
-/* <MuiCard>
+const Card = ({ slug, title, thumbnail }) => (
+  <MuiCard>
+    <Link href={'/posts/' + slug}>
       <CardActionArea>
-        <CardMedia component="img" image={thumbnail} />
-
-        <Box position="relative" height={300}>
-          <Image
-          layout="fill"
-          src="/img/zhang-kaiyv-ecfpmkovzpa-unsplash.jpg?nf_resize=fit&w=300"
-          alt="post thumbnail"
-        />
-        </Box>
+        <CardMedia component="img" image={'/' + thumbnail + '?nf_resize=fit&w=300'} />
         <CardContent>
-          <Typography variant="h5" gutterBottom>
-            {title}
-          </Typography>
+          <Typography variant="h5">{title}</Typography>
         </CardContent>
       </CardActionArea>
-    </MuiCard> */
+    </Link>
+  </MuiCard>
+);
+
 export default Card;
