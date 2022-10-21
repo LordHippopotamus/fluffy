@@ -31,6 +31,9 @@ const Navigation = ({ pages = [] }) => {
         </Box>
 
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Link href="/">
+            <Button color="inherit">Home</Button>
+          </Link>
           {pages.map(el => (
             <Link href={'/pages/' + el.slug} key={el.slug}>
               <Button color="inherit">{el.title}</Button>
@@ -45,6 +48,9 @@ const Navigation = ({ pages = [] }) => {
             </IconButton>
           </Box>
           <Menu open={open} onClose={handleCloseMenu} anchorEl={anchor.current} keepMounted>
+            <Link href="/">
+              <MenuItem>Home</MenuItem>
+            </Link>
             {pages.map(el => (
               <Link href={'/pages/' + el.slug} key={el.slug}>
                 <MenuItem>{el.title}</MenuItem>
