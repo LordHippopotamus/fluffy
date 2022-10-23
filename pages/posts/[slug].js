@@ -14,7 +14,14 @@ export const getStaticPaths = () => {
 
 export const getStaticProps = context => {
   const pages = getObjects('pages', ['slug', 'title']);
-  const post = getObject('posts/' + context.params.slug, ['title', 'content', 'thumbnail']);
+  const post = getObject('posts/' + context.params.slug, [
+    'title',
+    'content',
+    'thumbnail',
+    'category',
+    'animal',
+    'date',
+  ]);
 
   const md = new Remarkable();
   post.content = md.render(post.content);

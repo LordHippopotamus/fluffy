@@ -5,6 +5,15 @@ const App = ({ Component, pageProps }) => {
   const theme = createTheme({
     palette: {
       mode: prefersDarkMode ? 'dark' : 'light',
+      primary: {
+        main: '#62d2aa',
+      },
+      secondary: {
+        main: '#d26289',
+      },
+    },
+    typography: {
+      fontSize: 18,
     },
   });
 

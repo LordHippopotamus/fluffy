@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@mui/material';
 
 const Single = page => (
-  <Box my={4}>
+  <Box my={8}>
     <Container>
       <Typography gutterBottom variant="h1">
         {page.title}

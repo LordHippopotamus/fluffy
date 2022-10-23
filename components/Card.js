@@ -1,7 +1,7 @@
 import {
-  Box,
+  Button,
   Card as MuiCard,
-  CardActionArea,
+  CardActions,
   CardContent,
   CardMedia,
   Typography,
@@ -10,14 +10,17 @@ import Link from 'next/link';
 
 const Card = ({ slug, title, thumbnail }) => (
   <MuiCard>
-    <Link href={'/posts/' + slug}>
-      <CardActionArea>
-        <CardMedia component="img" image={'/' + thumbnail + '?nf_resize=fit&w=300'} />
-        <CardContent>
-          <Typography variant="h5">{title}</Typography>
-        </CardContent>
-      </CardActionArea>
-    </Link>
+    <CardMedia component="img" image={'/' + thumbnail + '?nf_resize=fit&w=300'} />
+    <CardContent>
+      <Typography variant="h5">{title}</Typography>
+    </CardContent>
+    <CardActions>
+      <Link href={'/posts/' + slug}>
+        <Button size="large" color="secondary" variant="outlined">
+          Read More
+        </Button>
+      </Link>
+    </CardActions>
   </MuiCard>
 );
 
