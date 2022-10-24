@@ -6,10 +6,10 @@ const App = ({ Component, pageProps }) => {
     palette: {
       mode: prefersDarkMode ? 'dark' : 'light',
       primary: {
-        main: '#62d2aa',
+        main: '#81c784',
       },
       secondary: {
-        main: '#d26289',
+        main: '#ec407a',
       },
     },
     typography: {
