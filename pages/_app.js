@@ -1,21 +1,39 @@
-import { createTheme, CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material';
+import {
+  createTheme,
+  CssBaseline,
+  responsiveFontSizes,
+  ThemeProvider,
+  useMediaQuery,
+} from '@mui/material';
 
 const App = ({ Component, pageProps }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const theme = createTheme({
+  let theme = createTheme({
     palette: {
       mode: prefersDarkMode ? 'dark' : 'light',
       primary: {
-        main: '#81c784',
+        main: '#a5d6a7',
       },
       secondary: {
-        main: '#ec407a',
+        main: '#d6a5d4',
+      },
+    },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            borderRadius: 12,
+          },
+        },
       },
     },
     typography: {
-      fontSize: 18,
+      fontSize: 20,
+      fontFamily: 'Comfortaa, cursive',
     },
   });
+
+  theme = responsiveFontSizes(theme);
 
   return (
     <ThemeProvider theme={theme}>

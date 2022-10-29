@@ -10,6 +10,7 @@ import {
   Menu,
   MenuItem,
 } from '@mui/material';
+import PetsIcon from '@mui/icons-material/Pets';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@emotion/react';
 import { useRouter } from 'next/router';
@@ -17,7 +18,6 @@ import { useRouter } from 'next/router';
 const Navigation = ({ pages = [] }) => {
   const theme = useTheme();
   const router = useRouter();
-  console.log(router);
 
   const [open, setOpen] = useState(false);
   const anchor = useRef(null);
@@ -30,7 +30,11 @@ const Navigation = ({ pages = [] }) => {
       <Toolbar>
         <Box flexGrow={1}>
           <Link href="/">
-            <Typography variant="h5" sx={{ display: 'inline-block', cursor: 'pointer' }}>
+            <Typography
+              variant="h6"
+              sx={{ display: 'flex', alignItems: 'center', gap: 1, width: 119, cursor: 'pointer' }}
+            >
+              <PetsIcon color={theme.palette.mode === 'dark' ? 'primary' : 'inherit'} />
               Fluffy
             </Typography>
           </Link>
@@ -38,11 +42,11 @@ const Navigation = ({ pages = [] }) => {
 
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           <Link href="/">
-            <Button color={theme.palette.mode === 'dark' ? 'primary' : 'inherit'}>Home</Button>
+            <Button color="inherit">Home</Button>
           </Link>
           {pages.map(el => (
             <Link href={'/pages/' + el.slug} key={el.slug}>
-              <Button color={theme.palette.mode === 'dark' ? 'primary' : 'inherit'} sx={{ ml: 2 }}>
+              <Button color="inherit" sx={{ ml: 2 }}>
                 {el.title}
               </Button>
             </Link>

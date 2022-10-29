@@ -3,7 +3,10 @@ import { getObjects } from 'lib/data';
 
 export const getStaticProps = () => {
   const pages = getObjects('pages', ['slug', 'title']);
-  const posts = getObjects('posts', ['slug', 'title', 'thumbnail'], { page: 2, limit: 6 });
+  const posts = getObjects('posts', ['slug', 'title', 'thumbnail', 'animal', 'category'], {
+    page: 2,
+    limit: 6,
+  });
   return { props: { pages, posts } };
 };
 

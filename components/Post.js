@@ -1,13 +1,12 @@
-import { Box, Chip, Container, Stack, Typography } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
+import TagIcon from '@mui/icons-material/Tag';
 
 const Post = ({ title, content, thumbnail, category, animal, date }) => (
   <Container sx={{ my: 8 }}>
-    <Typography variant="h5" component="h1">
-      {title}
-    </Typography>
-    <Stack direction="row" spacing={2} my={2}>
-      <Chip label={animal} color="secondary" />
-      <Chip label={category} color="secondary" />
+    <Typography variant="h3">{title}</Typography>
+    <Stack direction="row" spacing={2} my={2} ml="auto">
+      <TagIcon color="secondary" /> {animal}
+      <TagIcon color="secondary" /> {category}
     </Stack>
     <Box
       width={{ xs: 1, md: 0.8, lg: 0.5 }}
