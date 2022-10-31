@@ -19,7 +19,11 @@ const Card = ({ slug, title, thumbnail, animal, category }) => (
     </CardContent>
     <CardActions>
       <Link href={'/posts/' + slug}>
-        <Button color="primary" variant="contained" sx={{ whiteSpace: 'nowrap', minWidth: 148 }}>
+        <Button
+          color="primary"
+          variant="contained"
+          sx={{ whiteSpace: 'nowrap', minWidth: 148, alignSelf: 'flex-end' }}
+        >
           Read More
         </Button>
       </Link>
