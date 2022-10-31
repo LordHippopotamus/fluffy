@@ -26,6 +26,27 @@ const App = ({ Component, pageProps }) => {
           },
         },
       },
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            borderRadius: 12,
+          },
+        },
+      },
+      MuiCardContent: {
+        styleOverrides: {
+          root: {
+            padding: 12,
+          },
+        },
+      },
+      MuiCardActions: {
+        styleOverrides: {
+          root: {
+            padding: 12,
+          },
+        },
+      },
     },
     typography: {
       fontSize: 20,

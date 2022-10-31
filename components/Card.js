@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Card as MuiCard,
   CardActions,
@@ -10,26 +11,34 @@ import {
 import TagIcon from '@mui/icons-material/Tag';
 import Link from 'next/link';
 
-const Card = ({ slug, title, thumbnail, animal, category }) => {
-  return (
-    <MuiCard>
-      <CardMedia component="img" image={'/' + thumbnail + '?nf_resize=fit&w=300'} />
-      <CardContent>
-        <Typography variant="h5">{title}</Typography>
-      </CardContent>
-      <CardActions>
-        <Link href={'/posts/' + slug}>
-          <Button color="primary" variant="contained">
-            Read More
-          </Button>
-        </Link>
-        <Stack direction="row" spacing={2} ml="auto">
+const Card = ({ slug, title, thumbnail, animal, category }) => (
+  <MuiCard>
+    <CardMedia component="img" image={'/' + thumbnail + '?nf_resize=fit&w=300'} />
+    <CardContent>
+      <Typography variant="h5">{title}</Typography>
+    </CardContent>
+    <CardActions>
+      <Link href={'/posts/' + slug}>
+        <Button color="primary" variant="contained" sx={{ whiteSpace: 'nowrap', minWidth: 148 }}>
+          Read More
+        </Button>
+      </Link>
+      <Stack
+        direction="row"
+        ml="auto"
+        justifyContent="flex-end"
+        flexWrap="wrap"
+        spacing={{ xs: 0, sm: 2 }}
+      >
+        <Box display="flex" alignItems="center">
           <TagIcon color="secondary" /> {animal}
+        </Box>
+        <Box display="flex" alignItems="center">
           <TagIcon color="secondary" /> {category}
-        </Stack>
-      </CardActions>
-    </MuiCard>
-  );
-};
+        </Box>
+      </Stack>
+    </CardActions>
+  </MuiCard>
+);
 
 export default Card;
