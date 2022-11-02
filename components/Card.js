@@ -17,12 +17,7 @@ const Card = ({ slug, title, thumbnail, animal, category }) => {
     <MuiCard>
       <CardMedia sx={{ height: 500 }}>
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-          <Image
-            src={'/' + thumbnail + '?nf_resize=fit&w=500'}
-            alt="post image"
-            layout="fill"
-            objectFit="cover"
-          />
+          <Image src={'/' + thumbnail} alt="post image" layout="fill" objectFit="cover" />
         </div>
       </CardMedia>
       <CardContent>

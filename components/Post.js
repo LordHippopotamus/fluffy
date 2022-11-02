@@ -10,11 +10,7 @@ const Post = ({ title, content, thumbnail, category, animal, date }) => (
       <TagIcon color="secondary" /> {category}
     </Stack>
     <Box position="relative" width={{ xs: '100%', md: '80%' }} height="500px" mx="auto">
-      <Image
-        src={'/' + thumbnail + '?nf_resize=smartcrop&w=800&h=800'}
-        layout="fill"
-        objectFit="contain"
-      />
+      <Image src={'/' + thumbnail} layout="fill" objectFit="contain" alt="post image" />
     </Box>
     <div dangerouslySetInnerHTML={{ __html: content }} />
     <Typography color="secondary" textAlign="right">
