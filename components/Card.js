@@ -10,16 +10,15 @@ import {
 } from '@mui/material';
 import TagIcon from '@mui/icons-material/Tag';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const Card = ({ slug, title, thumbnail, animal, category }) => {
   return (
     <MuiCard>
-      <CardMedia sx={{ height: 500 }}>
-        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-          <Image src={'/' + thumbnail} alt="post image" layout="fill" objectFit="cover" />
-        </div>
-      </CardMedia>
+      <CardMedia
+        sx={{ height: '500px' }}
+        alt="post image"
+        image={'/' + thumbnail + '?nf_resize=smartcrop&w=500&h=500'}
+      />
       <CardContent>
         <Typography variant="h5">{title}</Typography>
       </CardContent>
