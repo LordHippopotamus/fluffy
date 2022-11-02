@@ -55,7 +55,7 @@ const Navigation = ({ pages = [] }) => {
 
         <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
           <Box ref={anchor} onClick={handleOpenMenu}>
-            <IconButton color="inherit">
+            <IconButton color="inherit" name="Menu">
               <MenuIcon />
             </IconButton>
           </Box>
