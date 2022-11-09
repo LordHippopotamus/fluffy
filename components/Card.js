@@ -13,15 +13,24 @@ import Link from 'next/link';
 
 const Card = ({ slug, title, thumbnail, animal, category }) => {
   return (
-    <MuiCard>
-      <CardMedia
-        sx={{ height: '500px' }}
-        alt="post image"
-        image={'/' + thumbnail + '?nf_resize=smartcrop&w=500&h=500'}
-      />
-      <CardContent>
-        <Typography variant="h5">{title}</Typography>
-      </CardContent>
+    <MuiCard
+      sx={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}
+    >
+      <Box>
+        <CardMedia
+          sx={{ height: '500px' }}
+          alt="post image"
+          image={'/' + thumbnail + '?nf_resize=smartcrop&w=500&h=500'}
+        />
+        <CardContent sx={{ py: '12px !important' }}>
+          <Typography variant="h5">{title}</Typography>
+        </CardContent>
+      </Box>
       <CardActions>
         <Link href={'/posts/' + slug}>
           <Button

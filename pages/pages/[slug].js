@@ -3,7 +3,7 @@ import { getObject, getObjects } from 'lib/data';
 import { Remarkable } from 'remarkable';
 
 export const getStaticPaths = () => {
-  const pages = getObjects('pages', ['slug']);
+  const { results: pages } = getObjects('pages', ['slug']);
   const paths = pages.map(el => ({
     params: {
       slug: el.slug,
@@ -13,7 +13,7 @@ export const getStaticPaths = () => {
 };
 
 export const getStaticProps = context => {
-  const pages = getObjects('pages', ['slug', 'title']);
+  const { results: pages } = getObjects('pages', ['slug', 'title']);
   const page = getObject('pages/' + context.params.slug, ['title', 'content']);
 
   const md = new Remarkable();

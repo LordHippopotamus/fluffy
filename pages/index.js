@@ -1,19 +1,23 @@
-import { Grid, Navigation } from 'components';
+import { Grid, Navigation, Pagination } from 'components';
 import { getObjects } from 'lib/data';
 
-export const getStaticProps = () => {
-  const pages = getObjects('pages', ['slug', 'title']);
-  const posts = getObjects('posts', ['slug', 'title', 'thumbnail', 'animal', 'category'], {
-    page: 2,
-    limit: 6,
-  });
-  return { props: { pages, posts } };
+export const getServerSideProps = ({ query }) => {
+  const { results: pages } = getObjects('pages', ['slug', 'title']);
+  const { results: posts, pagination } = getObjects(
+    'posts',
+    ['slug', 'title', 'thumbnail', 'animal', 'category'],
+    {
+      page: +query.page || 1,
+    }
+  );
+  return { props: { pages, posts, pagination } };
 };
 
-const Home = ({ pages, posts }) => (
+const Home = ({ pages, posts, pagination }) => (
   <>
     <Navigation pages={pages} />
     <Grid list={posts} />
+    <Pagination page={pagination.page} count={pagination.count} />
   </>
 );
 
