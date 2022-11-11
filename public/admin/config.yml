@@ -133,6 +133,10 @@ collections:
         label: Content
         widget: markdown
         hint: Post content
+      - name: description
+        label: Description
+        widget: text
+        hint: Post description
       - name: animal
         label: Animal
         widget: relation
