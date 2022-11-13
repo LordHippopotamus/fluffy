@@ -22,14 +22,6 @@ collections:
           - name: description
             label: Site description
             widget: string
-          - name: keywords
-            label: Site keywords
-            widget: list
-            summary: '{{fields.keyword}}'
-            field:
-              label: Keyword
-              name: keyword
-              widget: string
 
   - name: animals
     label: Animals
