@@ -13,11 +13,9 @@ import {
 import PetsIcon from '@mui/icons-material/Pets';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@emotion/react';
-import { useRouter } from 'next/router';
 
 const Navigation = ({ pages = [] }) => {
   const theme = useTheme();
-  const router = useRouter();
 
   const [open, setOpen] = useState(false);
   const anchor = useRef(null);

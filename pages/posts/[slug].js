@@ -26,12 +26,17 @@ export const getStaticProps = context => {
   const md = new Remarkable({ html: true });
   post.content = md.render(post.content);
 
-  return { props: { pages, post } };
+  const meta = {
+    title: post.title,
+    description: post.description,
+  };
+
+  return { props: { meta, pages, post } };
 };
 
-const PostPage = ({ pages, post }) => (
+const PostPage = ({ meta, pages, post }) => (
   <>
-    <Meta title={post.title} description={post.description} />
+    <Meta {...meta} />
     <Navigation pages={pages} />
     <Post {...post} />
   </>
