@@ -1,4 +1,4 @@
-import { Navigation, Post } from 'components';
+import { Meta, Navigation, Post } from 'components';
 import { getObject, getObjects } from 'lib/data';
 import { Remarkable } from 'remarkable';
 
@@ -14,7 +14,14 @@ export const getStaticPaths = () => {
 
 export const getStaticProps = context => {
   const { results: pages } = getObjects('pages', ['slug', 'title']);
-  const post = getObject('posts/' + context.params.slug, ['content', 'category', 'animal', 'date']);
+  const post = getObject('posts/' + context.params.slug, [
+    'content',
+    'category',
+    'animal',
+    'date',
+    'title',
+    'description',
+  ]);
 
   const md = new Remarkable({ html: true });
   post.content = md.render(post.content);
@@ -24,6 +31,7 @@ export const getStaticProps = context => {
 
 const PostPage = ({ pages, post }) => (
   <>
+    <Meta title={post.title} description={post.description} />
     <Navigation pages={pages} />
     <Post {...post} />
   </>
