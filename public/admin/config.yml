@@ -86,6 +86,10 @@ collections:
         label: Title
         widget: string
         hint: Page title
+      - name: description
+        label: Description
+        widget: text
+        hint: Page description
       - name: content
         label: Content
         widget: markdown
