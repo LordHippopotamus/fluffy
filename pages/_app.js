@@ -5,6 +5,8 @@ import {
   ThemeProvider,
   useMediaQuery,
 } from '@mui/material';
+import { LoginDialog } from 'components';
+import ContextProvider from 'context';
 
 const App = ({ Component, pageProps }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -36,10 +38,13 @@ const App = ({ Component, pageProps }) => {
   theme = responsiveFontSizes(theme);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <ContextProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+        <LoginDialog />
+      </ThemeProvider>
+    </ContextProvider>
   );
 };
 
