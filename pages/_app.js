@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import { LoginDialog } from 'components';
 import ContextProvider from 'context';
+import '../styles.css';
 
 const App = ({ Component, pageProps }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
