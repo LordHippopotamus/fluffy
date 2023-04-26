@@ -12,7 +12,7 @@
     "@mui/icons-material": "^5.10.6",
     "@mui/lab": "^5.0.0-alpha.104",
     "@mui/material": "^5.10.8",
-    "@xata.io/client": "^0.23.4",
+    "@xata.io/client": "^0.23.5",
     "gotrue-js": "^0.9.29",
     "next": "^13.3.1",
     "react": "^18.2.0",

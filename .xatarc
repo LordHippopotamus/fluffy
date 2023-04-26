@@ -1,7 +1,7 @@
 {
   "databaseURL": "https://Daniel-s-workspace-s6gj91.eu-west-1.xata.sh/db/fluffy",
   "codegen": {
-    "output": "src/xata.js",
+    "output": "lib/xata.js",
     "moduleType": "esm"
   }
 }

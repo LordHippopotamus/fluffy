@@ -6,3 +6,4 @@ export { default as Post } from './Post';
 export { default as Pagination } from './Pagination';
 export { default as Meta } from './Meta';
 export { default as LoginDialog } from './LoginDialog';
+export { default as Comments } from './Comments';

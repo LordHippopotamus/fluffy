@@ -1,4 +1,5 @@
-import { Meta, Navigation, Post } from 'components';
+import { Box, Divider } from '@mui/material';
+import { Meta, Navigation, Post, Comments } from 'components';
 import { getObject, getObjects } from 'lib/data';
 import { Remarkable } from 'remarkable';
 
@@ -21,6 +22,7 @@ export const getStaticProps = context => {
     'date',
     'title',
     'description',
+    'slug',
   ]);
 
   const md = new Remarkable({ html: true });
@@ -39,6 +41,12 @@ const PostPage = ({ meta, pages, post }) => (
     <Meta {...meta} />
     <Navigation pages={pages} />
     <Post {...post} />
+    <Box my={4}>
+      <Divider />
+    </Box>
+    <Box my={4}>
+      <Comments postSlug={post.slug} />
+    </Box>
   </>
 );
 
